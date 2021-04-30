@@ -122,5 +122,32 @@ const successfulGuess = function () {
     if (word.toUpperCase() === UpdateWordInProgress.innerText) {
         message.classList.add("win");
         message.innerText = `<p class="highlight">You guessed correct the word! Congrats!</p>`;
+        startOver();
     }
 };
+
+// show the play again button and hide the guess button when the game is over
+const startOver = function () {
+    guessButton.classList.add("hide");
+    remainingGuessesDisplay.classList.add("hide");
+    guessedLettersList.classList.add("hide");
+    playAgainButton.classList.remove("hide");
+};
+
+playAgainButton.addEventListener("click", function () {
+    // start new game
+    message.classList.remove("win");
+    guessedLetters = [];
+    remainingGuesses = 8;
+    remainingGuessesDisplay.innerText = `{remainingGuesses} guesses`;
+    message.innerText = "";
+    guessedLettersList.innerHTML = "";
+
+    getWord();
+
+    guessButton.classList.remove("hide");
+    playAgainButton.classList.add("hide");
+    remainingGuessesDisplay.classList.remove("hide");
+    guessedLettersList.classList.remove("hide");
+});
+
