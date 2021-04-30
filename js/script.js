@@ -72,7 +72,7 @@ const makeGuess = function (guess) {
         console.log(guessedLetters);
         countRemainingGuesses(guess);
         pageUpdate();
-        UpdateWordInProgress(guessedLetters);
+        updateWordInProgress(guessedLetters);
     }
 };
 
