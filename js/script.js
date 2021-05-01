@@ -7,11 +7,11 @@ const remainingGuessesDisplay = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 
-//test word before connecting to API
-let word = "Magnolia";    
+let word = "Magnolia";    // test word if connection to API is unsuccessful
 const guessedLetters = [];
 let remainingGuesses = 8;
 
+// choose a random word
 const getWord = async function () {
     const res = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await res.text();
@@ -22,6 +22,7 @@ const getWord = async function () {
 };
 getWord();
 
+// display a symbol in place of selected word's letters
 const updateText = function (word) {        
     const updateTextLetters = [];
     for (const text of word) {
@@ -31,6 +32,7 @@ const updateText = function (word) {
     wordInProgress.innerText = updateTextLetters.join("");
 };
 
+// start the game
 updateText(word);
 
 guessButton.addEventListener("click", function (e) {
@@ -41,7 +43,9 @@ guessButton.addEventListener("click", function (e) {
     const guess = letterInput.value;
     // make sure input is a single letter
     const validator = validate(guess);
+
     if (validator) {
+        // a letter has been entered, continue game
         makeGuess(guess);
     }
     letterInput.value = "";
@@ -53,12 +57,16 @@ guessButton.addEventListener("click", function (e) {
 const validate = function (input) {
     const acceptedLetter = /[a-zA-Z]/;
     if (input.length === 0) {
+        // the input is empty
         message.innerText = "Please enter a letter.";
     } else if (input.length > 1) {
+        // more than one letter was entered
         message.innerText = "Please enter only one letter.";
     } else if (!input.match(acceptedLetter)) {
+        // some other charater or symbol was entered
         message.innerText = "Please enter a letter from A to Z.";
     } else {
+        // correct entry 
         return input;
     }
 }; 
@@ -71,13 +79,17 @@ const makeGuess = function (guess) {
         guessedLetters.push(guess);
         console.log(guessedLetters);
         countRemainingGuesses(guess);
+        // display already guessed letters
         pageUpdate();
+        // check to see if new letter is in the word
         updateWordInProgress(guessedLetters);
     }
 };
 
 const pageUpdate = function () {
+    // clear the list first
     guessedLettersList.innerHTML = "";
+
     for (const letter of guessedLetters) {
         const li = document.createElement("li");
         li.innerText = letter;
@@ -145,6 +157,7 @@ playAgainButton.addEventListener("click", function () {
 
     getWord();
 
+    // show the corrct UI elements 
     guessButton.classList.remove("hide");
     playAgainButton.classList.add("hide");
     remainingGuessesDisplay.classList.remove("hide");
