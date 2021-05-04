@@ -5,7 +5,7 @@ Try to guess the hidden word in this interactive game.
 
 **View My Project:** https://e-gunn.github.io/guessing-game/
 
-![Guess the Word Game Screenshot](https://github.com/e-gunn/guessing-game/blob/main/screenshot.png)
+![Guess the Word Game Screenshot](https://github.com/e-gunn/guessing-game/blob/main/img/screenshot.png)
 
 ## Features
 * Guess the hidden word selected from a possible 800 words
