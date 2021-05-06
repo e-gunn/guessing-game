@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Bungee Inline", sans-serif;
   font-style: normal;
   font-size: 20px;
   line-height: 150%;
@@ -50,18 +50,30 @@ h1 {
 }
 */
 
+p,
+.guess-form {
+  letter-spacing: 1.75px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-transform: uppercase;
+}
+
 .container {
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(167, 237, 237, 0.3) 0%,
-    rgba(156, 226, 226, 0) 100%
-  );
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 90%;
 }
+
+/*
+.container {
+    background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(167, 237, 237, 0.3) 0%,
+    rgba(156, 226, 226, 0) 100%
+  );
+}
+*/
 
 .hide {
   display: none;

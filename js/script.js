@@ -27,7 +27,7 @@ const updateText = function (word) {
     const updateTextLetters = [];
     for (const text of word) {
         console.log(text);
-        updateTextLetters.push("●");
+        updateTextLetters.push("⭐️");   // https://getemoji.com/ 
     }
     wordInProgress.innerText = updateTextLetters.join("");
 };
@@ -58,13 +58,13 @@ const validate = function (input) {
     const acceptedLetter = /[a-zA-Z]/;
     if (input.length === 0) {
         // the input is empty
-        message.innerText = "Please enter a letter.";
+        message.innerText = "Please enter a letter";
     } else if (input.length > 1) {
         // more than one letter was entered
-        message.innerText = "Please enter only one letter.";
+        message.innerText = "Please enter only one letter";
     } else if (!input.match(acceptedLetter)) {
         // some other charater or symbol was entered
-        message.innerText = "Please enter a letter from A to Z.";
+        message.innerText = "Please enter a letter from A to Z";
     } else {
         // correct entry 
         return input;
