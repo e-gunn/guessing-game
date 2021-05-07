@@ -8,7 +8,7 @@ const message = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 
 let word = "Magnolia";    // test word if connection to API is unsuccessful
-const guessedLetters = [];
+let guessedLetters = [];
 let remainingGuesses = 8;
 
 // choose a random word
@@ -26,8 +26,8 @@ getWord();
 // display a symbol in place of selected word's letters
 const updateText = function (word) {        
     const updateTextLetters = [];
-    for (const text of word) {
-        // console.log(text);
+    for (const letter of word) {
+        console.log(letter);
         updateTextLetters.push("⭐️");   // https://getemoji.com/ 
     }
     wordInProgress.innerText = updateTextLetters.join("");
@@ -95,6 +95,7 @@ const pageUpdate = function () {
     }
 };
 
+// update the selected word to show the correctly guessed letters
 const updateWordInProgress = function (guessedLetters) {
     const wordUpper = word.toUpperCase();
     const wordArray = wordUpper.split("");
@@ -131,7 +132,7 @@ const countRemainingGuesses = function (guess) {
 const successfulGuess = function () {
     if (word.toUpperCase() === updateWordInProgress.innerText) {
         message.classList.add("win");
-        message.innerText = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
+        message.innerHTML = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
         startOver();
     }
 };
@@ -150,9 +151,10 @@ playAgainButton.addEventListener("click", function () {
     guessedLetters = [];
     remainingGuesses = 8;
     remainingGuessesDisplay.innerText = `{remainingGuesses} guesses`;
-    message.innerText = "";
     guessedLettersList.innerHTML = "";
+    message.innerText = "";
 
+    // get a new word
     getWord();
 
     // show the corrct UI elements 
