@@ -20,20 +20,18 @@ const getWord = async function () {
     word = wordArray[randomIndex].trim();
     updateText(word);
 };
+// start the game
 getWord();
 
 // display a symbol in place of selected word's letters
 const updateText = function (word) {        
     const updateTextLetters = [];
     for (const text of word) {
-        console.log(text);
+        // console.log(text);
         updateTextLetters.push("⭐️");   // https://getemoji.com/ 
     }
     wordInProgress.innerText = updateTextLetters.join("");
 };
-
-// start the game
-updateText(word);
 
 guessButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -105,11 +103,11 @@ const updateWordInProgress = function (guessedLetters) {
         if (guessedLetters.includes(letter)) {
             revealWord.push(letter.toUpperCase());
         } else {
-            revealWord.push("●");
+            revealWord.push("⭐️");
         }
     }
-    // console.log(wordArray);
-    UpdateWordInProgress.innerText = revealWord.join("");
+    // console.log(revealWord);
+    updateWordInProgress.innerText = revealWord.join("");
     successfulGuess();
 };
 
@@ -131,7 +129,7 @@ const countRemainingGuesses = function (guess) {
 };
 
 const successfulGuess = function () {
-    if (word.toUpperCase() === UpdateWordInProgress.innerText) {
+    if (word.toUpperCase() === updateWordInProgress.innerText) {
         message.classList.add("win");
         message.innerText = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
         startOver();
