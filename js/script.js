@@ -108,7 +108,7 @@ const updateWordInProgress = function (guessedLetters) {
         }
     }
     // console.log(revealWord);
-    updateWordInProgress.innerText = revealWord.join("");
+    wordInProgress.innerText = revealWord.join("");
     successfulGuess();
 };
 
