@@ -142,7 +142,7 @@ const successfulGuess = function () {
 // show the play again button and hide the guess button when the game is over
 const startOver = function () {
     guessButton.classList.add("hide");
-    remainingGuessesDisplay.classList.add("hide");
+    remainingGuessesClass.classList.add("hide");
     guessedLettersList.classList.add("hide");
     playAgainButton.classList.remove("hide");
 };
@@ -152,7 +152,7 @@ playAgainButton.addEventListener("click", function () {
     message.classList.remove("win");
     guessedLetters = [];
     remainingGuesses = 8;
-    remainingGuessesDisplay.innerText = `{remainingGuesses} guesses`;
+    remainingGuessesDisplay.innerText = `${remainingGuesses} guesses`;
     guessedLettersList.innerHTML = "";
     message.innerText = "";
 
@@ -162,7 +162,7 @@ playAgainButton.addEventListener("click", function () {
     // show the corrct UI elements 
     guessButton.classList.remove("hide");
     playAgainButton.classList.add("hide");
-    remainingGuessesDisplay.classList.remove("hide");
+    remainingGuessesClass.classList.remove("hide");
     guessedLettersList.classList.remove("hide");
 });
 
