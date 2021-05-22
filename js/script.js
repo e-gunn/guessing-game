@@ -107,7 +107,6 @@ const updateWordInProgress = function (guessedLetters) {
             revealWord.push("⭐️");
         }
     }
-    // console.log(revealWord);
     wordInProgress.innerText = revealWord.join("");
     successfulGuess();
 };
