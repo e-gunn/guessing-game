@@ -16,7 +16,7 @@ Try to guess the hidden word in this interactive game.
 * HTML
 * CSS
 * JavaScript
-* REST APIs
+* Fetch API
 
 ## Acknowledgements
 Project idea: [Skillcrush](https://skillcrush.com)<br>
